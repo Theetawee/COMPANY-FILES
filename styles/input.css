@@ -39,6 +39,7 @@
 }
 
 #id_email,
+#id_code,
 #id_login,
 #id_username,
 #id_password,
@@ -58,7 +59,6 @@
 }
 /* endstyles */
 
-
 .sidebar_link_default {
     @apply flex items-center rounded-r-full p-2.5 text-base font-medium text-gray-900 dark:text-white;
 }
@@ -67,9 +67,10 @@
     @apply bg-primary-200 font-semibold;
 }
 
-.info_title{
-    @apply font-semibold text-gray-700;}
+.info_title {
+    @apply font-semibold text-gray-700;
+}
 
-.info_p{
+.info_p {
     @apply text-gray-500 font-medium;
 }
