@@ -23,6 +23,16 @@
     @apply text-base font-medium text-gray-600 dark:text-white;
 }
 
+/* nav styles */
+
+.dropdown-link {
+    @apply block text-gray-800 font-medium px-4 py-3 hover:bg-primary-100;
+}
+.dropdown__menu {
+    @apply z-10 border overflow-hidden border-gray-100 ring-black ring-opacity-5 ring-1 bg-white divide-y divide-gray-100 rounded shadow max-w-xs w-full dark:bg-gray-700;
+}
+/* end styles */
+
 /* accounts Forms  */
 .form_frame {
     @apply px-3 bg-slate-100 min-h-screen flex items-center justify-center dark:bg-gray-900;
