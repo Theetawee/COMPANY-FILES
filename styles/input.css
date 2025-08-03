@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+@plugin 'flowbite/plugin';
+@plugin '@tailwindcss/typography';
+
+@source '../../node_modules/flowbite/**/*.js';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --color-primary-50: #eff9ff;
+    --color-primary-100: #def2ff;
+    --color-primary-200: #b6e7ff;
+    --color-primary-300: #75d6ff;
+    --color-primary-400: #2cc1ff;
+    --color-primary-500: #00a4ef;
+    --color-primary-600: #0087d4;
+    --color-primary-700: #006bab;
+    --color-primary-800: #005b8d;
+    --color-primary-900: #064c74;
+    --color-primary-950: #04304d;
+
+    --color-gray-50: #ffffff;
+    --color-gray-100: #efefef;
+    --color-gray-200: #dcdcdc;
+    --color-gray-300: #bdbdbd;
+    --color-gray-400: #989898;
+    --color-gray-500: #7c7c7c;
+    --color-gray-600: #656565;
+    --color-gray-700: #525252;
+    --color-gray-800: #464646;
+    --color-gray-900: #3d3d3d;
+    --color-gray-950: #292929;
+
+    --color-secondary-50: #eff5fe;
+    --color-secondary-100: #e8f0fd;
+    --color-secondary-200: #cbdcfa;
+    --color-secondary-300: #acc4f5;
+    --color-secondary-400: #8ba3ee;
+    --color-secondary-500: #6e84e6;
+    --color-secondary-600: #5361d8;
+    --color-secondary-700: #444ebe;
+    --color-secondary-800: #39429a;
+    --color-secondary-900: #353e7a;
+    --color-secondary-950: #1f2347;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+@utility input {
+    @apply bg-gray-50 border rounded-md border-gray-300 text-gray-900  focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-1;
+}
+
+@layer utilities {
+    html,
+    body ::-webkit-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        scroll-padding-top: 100px;
+    }
+    *:disabled {
+        @apply cursor-not-allowed !opacity-70;
+    }
+}
+.help-text {
+    @apply text-xs mt-2 font-medium  text-gray-500 dark:text-gray-400;
+}
+
+.setup_label {
+    @apply text-base font-medium text-gray-600 dark:text-white;
+}
+
+/* nav styles */
+
+.dropdown-link {
+    @apply block text-gray-800 text-sm hover:text-primary-500 font-medium p-2 hover:bg-primary-100;
+}
+.dropdown__menu {
+    @apply z-10 overflow-hidden divide-gray-100  md:max-w-xs w-full;
+}
+/* end styles */
+
+/* Article TOC Styles */
+
+/* image  */
+.image-style-align-right {
+    @apply float-right md:ml-4 max-w-full h-auto;
+}
+
+.image_resized {
+    @apply w-full! md:w-72! max-w-full h-auto;
+}
+
+/* General TOC Container */
+.toc-list {
+    @apply list-none p-0 m-0 grid grid-cols-1 gap-2;
+}
+
+/* TOC Item Styles */
+.toc-item {
+    @apply text-gray-500; /* Space between TOC items */
+}
+
+/* Heading Levels Styling */
+.toc-level-1 {
+    @apply text-base font-medium text-gray-700 relative; /* Add padding and improved color */
+}
+
+.toc-level-2 {
+    @apply text-base font-medium text-gray-700 relative; /* Add padding and improved color */
+}
+
+.toc-level-2::before {
+    content: "";
+    @apply absolute top-1/2 left-0 w-0 h-4 bg-gray-300; /* Add a line indicator for sub-items */
+    transform: translateY(-50%);
+}
+
+.toc-level-3 {
+    @apply text-sm font-normal text-gray-600 pl-4 relative; /* Additional padding and improved color */
+}
+
+.toc-level-3::before {
+    content: "";
+    @apply absolute top-1/2 left-0 w-0 h-4 bg-gray-300; /* Line indicator for sub-items */
+    transform: translateY(-50%);
+}
+
+/* Additional Styles for Better Visibility */
+.toc-item a {
+    @apply text-sky-500 hover:text-primary-700;
+}
+
+/* End */
+
+/* Dropdown */
+/* Keyframes for the dropdown animation */
+@keyframes dropdownIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes dropdownOut {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+/* Classes to control animations */
+.animate-dropdown-in {
+    animation: dropdownIn 0.3s ease-out forwards;
+}
+
+.animate-dropdown-out {
+    animation: dropdownOut 0.3s ease-in forwards;
+}
+
+/* end  */
+
+.select-input {
+    @apply border border-gray-300 text-gray-900 rounded-md focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 text-base;
+}
+
+.input-label {
+    @apply block mb-2 text-base font-medium text-gray-900 dark:text-white;
+}
